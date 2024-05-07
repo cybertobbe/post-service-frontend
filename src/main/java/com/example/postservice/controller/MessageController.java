@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/message")
+@RequestMapping("/api")
 public class MessageController {
 
     private final MessageService messageService;
@@ -16,12 +16,12 @@ public class MessageController {
         this.messageService=messageService;
     }
 
-    @PostMapping()
+    @PostMapping("/message")
     public MessageEntity saveMessage(@RequestBody MessageEntity message) {
         return messageService.save(message);
     }
 
-    @GetMapping()
+    @GetMapping("/message")
     public List<MessageEntity> getAllMessages() {
         return messageService.getMessages();
     }

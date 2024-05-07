@@ -12,11 +12,11 @@ public class MessageEntity {
     private String recieverUsername;
     private String message;
 
-    public MessageEntity(String id, String senderUsername, String receiverUsername, String message ) {
+    public MessageEntity(String id, String senderUsername, String recieverUsername, String message ) {
 
         this.id = id;
         this.senderUsername = senderUsername;
-        this.recieverUsername = receiverUsername;
+        this.recieverUsername = recieverUsername;
         this.message = message;
 
     }

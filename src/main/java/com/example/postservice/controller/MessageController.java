@@ -1,10 +1,12 @@
 package com.example.postservice.controller;
 
+import com.example.postservice.dto.EntityDto;
 import com.example.postservice.entity.MessageEntity;
 import com.example.postservice.service.MessageService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -22,8 +24,15 @@ public class MessageController {
     }
 
     @GetMapping("/message")
-    public List<MessageEntity> getAllMessages() {
-        return messageService.getMessages();
+    public List<EntityDto> getAllMessages() {
+        return messageService.getMessages().stream()
+                .map(messageService::mapToDto)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/message/sender/{senderUsername}")
+    public List<EntityDto> getMessagesBySender(@PathVariable String senderUsername) {
+        return messageService.findBySenderUsername(senderUsername);
     }
 
 }

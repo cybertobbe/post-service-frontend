@@ -3,7 +3,7 @@ package com.example.postservice.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="messages")
+@Document(collection = "messages")
 public class MessageEntity {
 
     @Id
@@ -21,4 +21,19 @@ public class MessageEntity {
 
     }
 
+    public String message() {
+        return this.message;
+    }
+
+    public String receiverUsername() {
+        return this.recieverUsername;
+    }
+
+    public String senderUsername() {
+        return this.senderUsername;
+    }
+
+    public String id() {
+        return this.id;
+    }
 }

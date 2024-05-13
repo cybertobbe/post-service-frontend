@@ -1,16 +1,41 @@
 services:
+  postapp:
+    image: postservice2
+    container_name: postmessage
+    ports:
+      - "8090:8080"
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/mydatabase
+    restart: 'on-failure'
+
   mongodb:
     image: 'mongo:latest'
-    environment:
-      - 'MONGO_INITDB_DATABASE=mydatabase'
-      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
-      - 'MONGO_INITDB_ROOT_USERNAME=root'
     ports:
       - '27017:27017'
-  rabbitmq:
-    image: 'rabbitmq:latest'
-    environment:
-      - 'RABBITMQ_DEFAULT_PASS=secret'
-      - 'RABBITMQ_DEFAULT_USER=myuser'
-    ports:
-      - '5672'
+    volumes:
+      #- mongodb_data:/data/db
+      - mongodb:/data/db
+
+volumes:
+  mongodb:
+
+
+
+#services:
+#  mongodb:
+#    image: 'mongo:latest'
+#    environment:
+#      - 'MONGO_INITDB_DATABASE=mydatabase'
+#      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
+#      - 'MONGO_INITDB_ROOT_USERNAME=root'
+#    ports:
+#      - '27017:27017'
+#  rabbitmq:
+#    image: 'rabbitmq:latest'
+#    environment:
+#      - 'RABBITMQ_DEFAULT_PASS=secret'
+#      - 'RABBITMQ_DEFAULT_USER=myuser'
+#    ports:
+#      - '5672'

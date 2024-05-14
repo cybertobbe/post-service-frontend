@@ -6,7 +6,7 @@ name: Release CI Pipeline
 on:
     push:
         branches:
-        - main
+        - master
 
 
 jobs:
@@ -46,10 +46,7 @@ jobs:
           images:
             ghcr.io/chatgut/post-service
           tags: |
-            type=ref,event=tag
-            type=semver,pattern={{raw}}
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
+            type=ref,event=raw, {{date 'YYYYMMDD-HHmmss'}}
             type=sha
 
       - name: Build and push

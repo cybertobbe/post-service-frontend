@@ -46,7 +46,7 @@ jobs:
           images:
             ghcr.io/chatgut/post-service
           tags: |
-            type=ref,event=raw, {{date 'YYYYMMDD-HHmmss'}}
+            type=raw, value={{date 'YYYYMMDD-HHmmss'}}
             type=sha
 
       - name: Build and push

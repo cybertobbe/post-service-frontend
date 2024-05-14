@@ -1,7 +1,7 @@
 services:
   postapp:
     image: postservice2
-    container_name: postmessage
+    #container_name: postmessage
     ports:
       - "8090:8080"
     depends_on:
@@ -15,7 +15,6 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      #- mongodb_data:/data/db
       - mongodb:/data/db
 
 volumes:

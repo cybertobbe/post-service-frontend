@@ -37,10 +37,10 @@ public class MessageService {
     }
 
     public EntityDto mapToDto(MessageEntity messageEntity) {
-        EntityDto dto = new EntityDto(String.valueOf(messageEntity.id()), messageEntity.senderUsername(), messageEntity.receiverUsername(), messageEntity.message());
+        EntityDto dto = new EntityDto(String.valueOf(messageEntity.id()), messageEntity.senderUsername(), messageEntity.recieverUsername(), messageEntity.message());
         dto.setId(messageEntity.id());
         dto.setSenderUsername(messageEntity.senderUsername());
-        dto.setRecieverUsername(messageEntity.receiverUsername());
+        dto.setRecieverUsername(messageEntity.recieverUsername());
         dto.setMessage(messageEntity.message());
         return dto;
     }

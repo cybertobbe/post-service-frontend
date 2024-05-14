@@ -25,7 +25,7 @@ public class MessageEntity {
         return this.message;
     }
 
-    public String receiverUsername() {
+    public String recieverUsername() {
         return this.recieverUsername;
     }
 

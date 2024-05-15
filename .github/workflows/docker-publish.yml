@@ -46,7 +46,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images:
-            ghcr.io/chatgut/post-service
+            ghcr.io/cybertobbe/post-service-frontend
           tags: |
             type=raw, value={{date 'YYYYMMDD-HHmmss'}}
             type=sha
